@@ -1,0 +1,17 @@
+{
+    "properties": [
+        {
+            "id": 1,
+            "type": "House",
+            "price": 450000,
+            "bedrooms": 3,
+            "dateAdded": { "year": 2004, "month": "May", "day": 10},
+            "postcode": "NW1",
+            "description": "A beautiful 3-bedroom house in the heart of London.",
+            "longDescription": "This stunning property features a modern kitchen, large garden...",
+            "mainImage": "https://images.unplash.com/photo-1580587767526-cf3671a050d4",
+            "images": ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg"],
+            "floorPlan": "floorplan.jpg"
+        }
+    ]
+}
