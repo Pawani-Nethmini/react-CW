@@ -1,42 +1,106 @@
-#root {
-  max-width: 1280px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Component Grouping & Visual Clues */
+.shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.3s ease;
+}
+
+.shadow:hover {
+  transform: translateY(-5px);
+}
+
+.mtop { margin-top: 40px; }
+.padding { padding: 40px 0; }
+
+/* Grid Layouts */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* Typography */
+h1 { font-size: 35px; color: #2d3954; font-weight: 700; }
+h3 { color: #27ae60; font-weight: 600; }
+
+/* Buttons & Widgets */
+button, .btn3 {
+  border-radius: 8px;
+  padding: 12px 24px;
+  background-color: #27ae60;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+select, input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* --- Responsive Design Marks (8%) --- */
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* iPad / Tablet Landscape (Under 1024px) */
+@media screen and (max-width: 1024px) {
+  .flex {
+    flex-direction: column;
+  }
+  
+  .search-form, aside {
+    width: 100% !important;
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.card {
-  padding: 2em;
-}
+/* Mobile (Under 600px) */
+@media screen and (max-width: 600px) {
+  .grid3, .grid4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    max-width: 95%;
+  }
 
-.read-the-docs {
-  color: #888;
+  h1 {
+    font-size: 26px;
+  }
 }

@@ -1,0 +1,95 @@
+/* Search Hero Section */
+.search-header {
+  background-color: #2d3954;
+  padding: 60px 0;
+  color: white;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Search Form Widgets (8% Marks) */
+.filter-widget-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  background: white;
+  padding: 25px;
+  margin-top: -40px; /* Overlap effect for aesthetics */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #72809d;
+}
+
+/* Favourites Sidebar (3% Display Marks) */
+.fav-sidebar {
+  background: #f7f9fc;
+  border-left: 1px solid #e1e5ee;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.fav-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Results Grid (7% Marks) */
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Visual Clues for Type (e.g., Badge) */
+.type-badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-house { background: #e8f5e9; color: #27ae60; }
+.badge-flat { background: #fff3e0; color: #ff9800; }
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+  .search-container {
+    flex-direction: column;
+  }
+  
+  .fav-sidebar {
+    width: 100%;
+    position: static;
+    border-left: none;
+    border-top: 1px solid #e1e5ee;
+  }
+}

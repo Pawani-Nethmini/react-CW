@@ -1,41 +1,55 @@
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import propertyData from '../data/properties.json';
+import data from '../data/properties.json';
+import './PropertyPage.css';
 
-const PropertyPage = () => {
+const PropertyPage = ({ favorites, onToggleFav }) => {
   const { id } = useParams();
-  const property = propertyData.properties.find(p => p.id === parseInt(id));
+  const property = data.properties.find(p => p.id === id);
+  const [mainImg, setMainImg] = useState(property?.mainImage);
 
-  if (!property) return <div>Property not found</div>;
+  if (!property) return <h2>Property not found</h2>;
 
   return (
     <div className="container padding">
-      <div className="back">
-        <img src={property.mainImage} alt={property.type} />
-        <div className="container">
-          <h1>{property.type} - £{property.price.toLocaleString()}</h1>
+      <Link to="/">← Back to Search</Link>
+      <div className="flex mtop">
+        <div style={{ width: '60%' }}>
+          <img src={mainImg} alt="Main" style={{ height: '400px', objectFit: 'cover', borderRadius: '10px' }} />
+          <div className="grid4 mtop">
+            {property.images.map((img, i) => (
+              <img key={i} src={img} onClick={() => setMainImg(img)} style={{ height: '80px', cursor: 'pointer' }} />
+            ))}
+          </div>
+        </div>
+        <div style={{ width: '35%' }}>
+          <h1>{property.type}</h1>
+          <h2 style={{ color: '#27ae60' }}>£{property.price.toLocaleString()}</h2>
+          <p>{property.location}</p>
+          <button className="btn5 mtop" onClick={() => onToggleFav(property)}>
+            {favorites.some(f => f.id === property.id) ? "Remove from Favourites" : "Add to Favourites"}
+          </button>
         </div>
       </div>
 
       <Tabs className="mtop">
         <TabList>
-          <Tab>Description</Tab>
+          <Tab>Full Description</Tab>
           <Tab>Floor Plan</Tab>
-          <Tab>Map</Tab>
+          <Tab>Google Map</Tab>
         </TabList>
-
+        <TabPanel><p className="padding">{property.longDescription}</p></TabPanel>
+        <TabPanel><img src={property.floorPlan} alt="Floorplan" className="padding" /></TabPanel>
         <TabPanel>
-          <p>{property.longDescription}</p>
-        </TabPanel>
-        <TabPanel>
-          <img src={property.floorPlan} alt="Floor Plan" style={{width: '50%'}} />
-        </TabPanel>
-        <TabPanel>
-          
-          <div className="map-placeholder">Google Map Integration Here</div>
+          <div className="padding" style={{ height: '300px', background: '#eee' }}>
+            Interactive Google Map Placeholder (NW1 Area)
+          </div>
         </TabPanel>
       </Tabs>
     </div>
   );
 };
+
+export default PropertyPage;

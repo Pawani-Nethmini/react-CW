@@ -1,57 +1,69 @@
-import React, {useState, useEffect} from "react"
-import propertyData from "../data/properties.json"
-import PropertyCard from "../Components/PropertyCard"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import data from '../data/properties.json'
+import "./SearchPage.css" 
 
-const SearchPage = () => {
-    const [results, setResults] = useState(propertyData.properties);
-    const [criteria, setCriteria] = useState({
-        type: "any",
-        minPrice: 0,
-        maxPrice: 1000000,
-        minBedrooms: 0,
-        maxBedrooms: 10,
-        postcode: ""
+const SearchPage = ({ favorites, onToggleFav, onClearFavs }) => {
+  const [results, setResults] = useState(data.properties);
+  const [filters, setFilters] = useState({
+    type: 'any', minPrice: 0, maxPrice: 1000000, minBeds: 0, maxBeds: 10, postcode: ''
+  });
+
+  const handleSearch = () => {
+    const filtered = data.properties.filter(p => {
+      const typeMatch = filters.type === 'any' || p.type.toLowerCase() === filters.type.toLowerCase();
+      const priceMatch = p.price >= filters.minPrice && p.price <= filters.maxPrice;
+      const bedMatch = p.bedrooms >= filters.minBeds && p.bedrooms <= filters.maxBeds;
+      const postMatch = p.postcode.toLowerCase().startsWith(filters.postcode.toLowerCase());
+      return typeMatch && priceMatch && bedMatch && postMatch;
     });
+    setResults(filtered);
+  };
 
-    const handleSearch = () => {
-        const filtered = propertyData.properties.filter(prop => {
-            const matchType = criteria.type === "any" || prop.type.toLowerCase() === criteria.type.toLocaleLowerCase();
-            const matchPrice = prop.price >= criteria.minPrice && prop.price <= criteria.maxPrice;
-            const matchBeds = prop.bedrooms >= criteria.minBedrooms && prop.bedrooms <= criteria.maxBedrooms;
-            const matchPostcode = prop.postcode.toLocaleLowerCase().startsWith(criteria.postcode.toLocaleLowerCase());
+  return (
+    <div className="container">
+      <div className="flex mtop">
+        <section className="search-form shadow padding" style={{ width: '70%' }}>
+          <div className="grid3">
+            <input type="text" placeholder="Postcode (e.g. NW1)" onChange={e => setFilters({...filters, postcode: e.target.value})} />
+            <select onChange={e => setFilters({...filters, type: e.target.value})}>
+              <option value="any">Type: Any</option>
+              <option value="House">House</option>
+              <option value="Flat">Flat</option>
+            </select>
+            <button onClick={handleSearch}>Search Properties</button>
+          </div>
+        </section>
 
-            return matchType && matchPrice && matchBeds && matchPostcode;
-        });
-        setResults(filtered);
-    };
+        <aside className="favorites-list shadow" style={{ width: '25%', padding: '20px' }}>
+          <h3>Favourites ({favorites.length})</h3>
+          <button className="btn2" onClick={onClearFavs} style={{ fontSize: '12px', padding: '5px' }}>Clear All</button>
+          {favorites.map(fav => (
+            <div key={fav.id} className="flex" style={{ marginTop: '10px' }}>
+              <p>{fav.type} - £{fav.price}</p>
+              <button onClick={() => onToggleFav(fav)}>×</button>
+            </div>
+          ))}
+        </aside>
+      </div>
 
-    return (
-        <div className="container">
-            <header className="heading">
-                <h1>Find Your Next Home</h1>
-            </header>
-
-            <section className="background shadow mtop">
-                <div className="grid5">
-                    <div className="form-group">
-                        <label>Property Type</label>
-                        <select onChange={(e) => setCriteria({...criteria, type: e.target.value})}>
-                            <option value="any">Any</option>
-                            <option value="house">House</option>
-                            <option value="flat">Flat</option>
-                        </select>
-                    </div>
-                    <button onClick={handleSearch}>Search</button>
-                </div>
-            </section>
-
-            <section className="grid3 padding">
-                {results.map(prop => (
-                    <PropertyCard key={prop.id} property={prop} />
-                ))}
-            </section>
-        </div>
-    );
+      <div className="grid3 mtop">
+        {results.map(prop => (
+          <div key={prop.id} className="shadow" style={{ padding: '15px', borderRadius: '10px' }}>
+            <img src={prop.mainImage} alt={prop.type} />
+            <h4>{prop.type} - £{prop.price.toLocaleString()}</h4>
+            <p>{prop.description}</p>
+            <div className="flex">
+              <Link to={`/property/${prop.id}`} className="btn3" style={{ padding: '10px', color: '#fff' }}>View Details</Link>
+              <button onClick={() => onToggleFav(prop)}>
+                {favorites.some(f => f.id === prop.id) ? '❤️' : '🤍'}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default SearchPage;

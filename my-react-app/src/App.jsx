@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
@@ -7,14 +7,30 @@ import PropertyPage from "./pages/PropertyPage"
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (property) => {
+    if (favorites.some(fav => fav.id === property.id)) {
+      setFavorites(favorites.filter(fav => fav.id !== property.id));
+    } else {
+      setFavorites([...favorites, property]);
+    }
+  };
+
+  const clearFavorites = () => setFavorites([]);
 
   return (
     <Router>
-      <div className='App'>
+      <div className="App">
         <Routes>
-          <Route path="/" element={<SearchPage />} />
-          <Route path="/property/:id" element={<PropertyPage />} />
+          <Route 
+            path="/" 
+            element={<SearchPage favorites={favorites} onToggleFav={toggleFavorite} onClearFavs={clearFavorites} />} 
+          />
+          <Route 
+            path="/property/:id" 
+            element={<PropertyPage favorites={favorites} onToggleFav={toggleFavorite} />} 
+          />
         </Routes>
       </div>
     </Router>
