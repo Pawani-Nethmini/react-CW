@@ -1,0 +1,153 @@
+/* ===== Favourites Sidebar ===== */
+.favourites-sidebar {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.favourites-list {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+  transition: all 0.3s;
+}
+
+.favourites-list.drag-over {
+  background: #f0f9ff;
+  border: 2px dashed #2563eb;
+}
+
+.favourites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.favourites-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.favourites-count {
+  background: #2563eb;
+  color: white;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+}
+
+.clear-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+  background: #dc2626;
+}
+
+.empty-favourites {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #9ca3af;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-hint {
+  font-size: 0.875rem;
+}
+
+.favourites-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.favourite-item {
+  display: flex;
+  background: #f9fafb;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.favourite-item:hover {
+  background: #f3f4f6;
+}
+
+.favourite-content {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.favourite-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.favourite-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favourite-price {
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.25rem;
+}
+
+.favourite-location {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.125rem;
+}
+
+.favourite-beds {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.remove-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 36px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.remove-button:hover {
+  background: #dc2626;
+}

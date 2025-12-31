@@ -1,0 +1,234 @@
+/* ===== Property Details Styles ===== */
+.property-details {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.details-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.details-type {
+  font-size: 1.125rem;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.details-price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.75rem;
+}
+
+.favourite-button {
+  background: white;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.favourite-button:hover:not(:disabled) {
+  background: #2563eb;
+  color: white;
+}
+
+.favourite-button.active {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* ===== Quick Info ===== */
+.quick-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-icon {
+  font-size: 2rem;
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.info-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.short-description {
+  margin-bottom: 2rem;
+}
+
+.short-description h3 {
+  font-size: 1.25rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* ===== Tabbed Content ===== */
+.tabbed-content {
+  margin-top: 2rem;
+}
+
+.react-tabs {
+  margin-top: 1rem;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 2rem;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.react-tabs__tab {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #6b7280;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  list-style: none;
+}
+
+.react-tabs__tab:hover {
+  color: #2563eb;
+}
+
+.react-tabs__tab--selected {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.tab-content {
+  padding: 1rem 0;
+}
+
+.tab-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.description-text {
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feature-item p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.floorplan-container {
+  background: #f9fafb;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.floorplan-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.map-container {
+  background: #f9fafb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.map-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.map-location {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.map-postcode {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.map-note {
+  font-size: 0.875rem;
+  font-style: italic;
+}

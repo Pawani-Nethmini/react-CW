@@ -1,109 +1,156 @@
-{
-  "properties": [
-    {
-      "id": "1",
-      "type": "House",
-      "price": 450000,
-      "bedrooms": 3,
-      "dateAdded": "2024-05-10",
-      "postcode": "NW1",
-      "location": "Camden, London",
-      "description": "Modern 3-bedroom house with a private garden.",
-      "longDescription": "This stunning property features an open-plan kitchen, master suite, and energy-efficient heating. Located near local transport links and excellent schools.",
-      "mainImage": "https://images.unsplash.com/photo-1580587767526-cf3671a050d4?w=800",
-      "images": [
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500",
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500",
-        "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=500",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500"
-      ],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "2",
-      "type": "Flat",
-      "price": 275000,
-      "bedrooms": 1,
-      "dateAdded": "2024-06-15",
-      "postcode": "BR1",
-      "location": "Bromley, London",
-      "description": "Charming 1-bedroom flat near Bromley South station.",
-      "longDescription": "A perfect purchase for first-time buyers. This flat offers a bright living area, a newly fitted bathroom, and secure entry.",
-      "mainImage": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
-      "images": ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "3",
-      "type": "House",
-      "price": 650000,
-      "bedrooms": 4,
-      "dateAdded": "2024-01-20",
-      "postcode": "NW3",
-      "location": "Hampstead, London",
-      "description": "Large family home with 4 bedrooms.",
-      "longDescription": "Located in a quiet cul-de-sac, this property offers spacious living rooms and a double garage.",
-      "mainImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-      "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "4",
-      "type": "Flat",
-      "price": 320000,
-      "bedrooms": 2,
-      "dateAdded": "2024-03-12",
-      "postcode": "E1",
-      "location": "Shoreditch, London",
-      "description": "Trendy 2-bedroom apartment.",
-      "longDescription": "High ceilings and industrial windows make this a unique living space in a popular area.",
-      "mainImage": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
-      "images": ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "5",
-      "type": "House",
-      "price": 890000,
-      "bedrooms": 5,
-      "dateAdded": "2024-07-01",
-      "postcode": "SW1",
-      "location": "Westminster, London",
-      "description": "Luxury 5-bedroom townhouse.",
-      "longDescription": "Exclusive property with a roof terrace and views of the city.",
-      "mainImage": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
-      "images": ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "6",
-      "type": "Flat",
-      "price": 195000,
-      "bedrooms": 1,
-      "dateAdded": "2024-08-15",
-      "postcode": "SE10",
-      "location": "Greenwich, London",
-      "description": "Cozy studio flat.",
-      "longDescription": "Perfect for a single professional, located close to the park.",
-      "mainImage": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800",
-      "images": ["https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    },
-    {
-      "id": "7",
-      "type": "House",
-      "price": 520000,
-      "bedrooms": 3,
-      "dateAdded": "2024-02-28",
-      "postcode": "CR0",
-      "location": "Croydon, London",
-      "description": "Modernized semi-detached house.",
-      "longDescription": "Newly renovated with a large kitchen diner and off-street parking.",
-      "mainImage": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
-      "images": ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500"],
-      "floorPlan": "https://images.unsplash.com/photo-1501183315624-221f2942953c?w=500"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "type": "house",
+    "price": 450000,
+    "bedrooms": 3,
+    "dateAdded": "2024-11-15",
+    "postcode": "BR1",
+    "location": "Bromley, London",
+    "shortDescription": "Beautiful 3-bedroom Victorian house with garden",
+    "longDescription": "This stunning Victorian house offers spacious living accommodation across three floors. Features include a large reception room, modern kitchen, three double bedrooms, family bathroom, and a beautiful rear garden perfect for entertaining.",
+    "images": [
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 2,
+    "type": "flat",
+    "price": 275000,
+    "bedrooms": 2,
+    "dateAdded": "2024-12-01",
+    "postcode": "NW1",
+    "location": "Camden, London",
+    "shortDescription": "Modern 2-bedroom flat in prime location",
+    "longDescription": "Contemporary apartment situated in the heart of Camden. This property features an open-plan living area, modern kitchen with integrated appliances, two bedrooms, stylish bathroom, and secure entry system. Perfect for professionals or investors.",
+    "images": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800",
+      "https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=800",
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800",
+      "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800",
+      "https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 3,
+    "type": "house",
+    "price": 625000,
+    "bedrooms": 4,
+    "dateAdded": "2024-10-20",
+    "postcode": "SW19",
+    "location": "Wimbledon, London",
+    "shortDescription": "Spacious 4-bedroom family home near common",
+    "longDescription": "Exceptional family home offering versatile living space. Ground floor features a large living room, separate dining room, and extended kitchen. Four generous bedrooms upstairs including master with en-suite. Off-street parking and large garden.",
+    "images": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800",
+      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800",
+      "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800",
+      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800",
+      "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 4,
+    "type": "flat",
+    "price": 195000,
+    "bedrooms": 1,
+    "dateAdded": "2024-11-25",
+    "postcode": "E14",
+    "location": "Canary Wharf, London",
+    "shortDescription": "Luxury 1-bedroom apartment with river views",
+    "longDescription": "Stunning riverside apartment in prestigious development. Features include open-plan living space, fully fitted kitchen, double bedroom, modern bathroom, and private balcony with Thames views. 24-hour concierge and gym facilities included.",
+    "images": [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800",
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800",
+      "https://images.unsplash.com/photo-1494203484021-3c454daf695d?w=800",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800",
+      "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 5,
+    "type": "house",
+    "price": 850000,
+    "bedrooms": 5,
+    "dateAdded": "2024-09-10",
+    "postcode": "KT2",
+    "location": "Kingston upon Thames, Surrey",
+    "shortDescription": "Detached 5-bedroom executive home with annexe",
+    "longDescription": "Magnificent detached property set on a large plot. Main house features entrance hall, dual reception rooms, conservatory, fitted kitchen/breakfast room, utility, and guest WC. Five bedrooms including master suite. Separate annexe, double garage, and landscaped gardens.",
+    "images": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800",
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800",
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800",
+      "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800",
+      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+      "https://images.unsplash.com/photo-1600563438938-a9a27216b4f5?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 6,
+    "type": "flat",
+    "price": 320000,
+    "bedrooms": 2,
+    "dateAdded": "2024-12-15",
+    "postcode": "W2",
+    "location": "Paddington, London",
+    "shortDescription": "Stylish 2-bedroom flat near Hyde Park",
+    "longDescription": "Beautifully presented apartment moments from Hyde Park. Comprises reception room with feature fireplace, separate kitchen, two double bedrooms with built-in storage, family bathroom, and communal gardens. Excellent transport links nearby.",
+    "images": [
+      "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=800",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800",
+      "https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800",
+      "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800",
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800",
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  },
+  {
+    "id": 7,
+    "type": "house",
+    "price": 520000,
+    "bedrooms": 3,
+    "dateAdded": "2024-12-20",
+    "postcode": "CR0",
+    "location": "Croydon, Surrey",
+    "shortDescription": "Extended 3-bedroom semi-detached house",
+    "longDescription": "Well-presented semi-detached home with recent extensions. Ground floor offers through lounge/diner, modern kitchen/breakfast room, and downstairs WC. First floor has three bedrooms and refurbished bathroom. Driveway parking and rear garden with patio area.",
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800",
+      "https://images.unsplash.com/photo-1600566752229-250ed79470d1?w=800",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800"
+    ],
+    "floorPlan": "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=800"
+  }
+]

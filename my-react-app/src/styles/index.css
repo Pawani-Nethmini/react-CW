@@ -1,0 +1,9 @@
+/* Import all CSS modules */
+@import './global.css';
+@import './header.css';
+@import './searchForm.css';
+@import './propertyCard.css';
+@import './favouritesList.css';
+@import './propertyDetails.css';
+@import './imageGallery.css';
+@import './responsive.css';
