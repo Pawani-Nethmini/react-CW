@@ -1,14 +1,19 @@
 .page-layout{
   display: grid;
-  grid-template-columns: 300px 1fr 280px;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.search-section{
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  padding: 20px; 
 }
 
 /*Results grid*/
 .results{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -17,7 +22,7 @@
     grid-template-columns: 1fr;
   }
 
-  .results {
-    grid-template-columns: 1fr;
+  .search-section{
+    order: -1;
   }
 }

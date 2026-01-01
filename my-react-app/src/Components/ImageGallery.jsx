@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react'
 import "../styles/imageGallery.css"
 
 function ImageGallery({ images}) {
-  const [current, setCurrent] = useState(images[0]);
+  const galleryImages = images && images.length > 0 ? images : [];
+  const [current, setCurrent] = useState(galleryImages[0]);
+
+  if (galleryImages.length === 0) 
+    return <p>No images available.</p>;
 
   return (
-    <div>
-      <img src={current} alt='Main'/>
+    <div className="gallery-container">
+        <div className="main-image-wrapper">
+            <img src={current} alt='Main Property' className='main-image'/>
+        </div>
         <div className="thumbnails">
-          {images.map((image, index) => (
-            <img key={i} src={img} alt='' onClick={() => setCurrent(img)}/>
+            {galleryImages.map((img, index) => (
+                <img key={index} src={img} alt={`Thumbnail ${index + 1}`} className={current === img ? 'active' : ''} onClick={() => setCurrent(img)}/>
           ))}
         </div>
     </div>

@@ -1,16 +1,22 @@
 import React from "react"
-import "./styles/propertyCard.css"
+import "../styles/propertyCard.css"
 
 function PropertyCard({ property, onView, onFavourite }) {
+  const displayImage = property.images ? property.images[0] : property.picture;
+
   return (
     <div className="property-card">
-      <img src={property.images[0]} alt={property.type} />
-      <h3>{property.type}</h3>
-      <p>£{property.price}</p>
-      <p>{property.shortDescription}</p>
+      <img src={displayImage} alt={property.type} />
+      <div className="card-content">
+        <h3>{property.type}</h3>
+        <p>£{property.price}</p>
+        <p>{property.shortDescription}</p>
 
-      <button onClick={onView}>View</button>
-      <button onClick={() => onFavourite(property)}>❤</button>
+        <div className="card-actions">
+          <button onClick={onView}>View Details</button>
+          <button className="fav-icon-btn" onClick={() => onFavourite(property)}>❤</button>
+        </div>
+      </div>
     </div>
   );
 }

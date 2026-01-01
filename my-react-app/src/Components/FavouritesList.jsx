@@ -1,21 +1,28 @@
 import React from 'react';
-import { useDrop, useDrag } from 'react-dnd';
 import "../styles/favouritesList.css";
 
 function FavouritesList({ favourites, onRemove, onClear, onView }) {
   return (
-    <aside>
-      <h3>Favourites</h3>
-      {favourites.map((p) => (
-        <div key={p.id}>
-          <span onClick={() => onView(p)}>{p.type}</span>
-          <button onClick={() => onRemove(p.id)}>X</button>
-        </div>
-      ))}
-      {favourites.length > 0 && <button onClick={onClear}>Clear</button>}
+    <aside className="favourites-sidebar">
+      <h3>Your Favourites ({favourites.length})</h3>
+      {favourites.length === 0 && <p>No favourites added yet.</p>}
+      
+      <div className="fav-items">
+        {favourites.map((p) => (
+          <div key={p.id} className="fav-item">
+            <span className="fav-title" onClick={() => onView(p)}>
+                {p.type} - £{p.price.toLocaleString()}
+            </span>
+            <button className="remove-btn" onClick={() => onRemove(p.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
+
+      {favourites.length > 0 && (
+        <button className="clear-all-btn" onClick={onClear}>Clear List</button>
+      )}
     </aside>
   );
 }
 
 export default FavouritesList;
-

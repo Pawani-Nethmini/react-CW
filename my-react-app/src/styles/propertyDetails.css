@@ -1,42 +1,34 @@
 .property-details {
-  padding: 20px;
-  max-width: 1100px;
-  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.property-details h2 {
-  margin-bottom: 10px;
+.back-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border-radius: 6px;
 }
 
-.property-meta {
-  font-size: 1.1rem;
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.property-tabs {
+  margin-top: 40px;
+}
+
+.tab-content {
+  padding: 20px 0;
+}
+
+.tab-content h3 {
   margin-bottom: 15px;
-  color: #444;
-}
-
-.property-actions {
-  margin: 15px 0;
-}
-
-.property-actions button {
-  background-color: crimson;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 4px;
-}
-
-/* Tabs section */
-.tabs {
-  margin-top: 25px;
-}
-
-.tabs h3 {
-  margin-bottom: 6px;
-}
-
-/* Responsive layout */
-@media (max-width: 1024px) {
-  .property-details {
-    padding: 12px;
-  }
+  color: #1e293b;
 }
