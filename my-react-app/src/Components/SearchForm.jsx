@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import Select from "react-select"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import "./styles/searchForm.css"
+import "../styles/searchForm.css"
 
 function SearchForm ({onSearch}){
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ function SearchForm ({onSearch}){
      {value: 800000, label: "£800,000"}
   ];
 
-  const maxPriceOption = [
+  const maxPriceOptions = [
     {value: 200000, label: "£200,000"},
     {value: 300000, label: "£300,000"},
     {value: 400000, label: "£400,000"},
@@ -64,7 +64,7 @@ function SearchForm ({onSearch}){
       type: formData.type?.value || "",
       minPrice: formData.minPrice,
       maxPrice: formData.maxPrice,
-      minBedRooms: formData.minBedrooms?.value || "",
+      minBedrooms: formData.minBedrooms?.value || "",
       maxBedrooms: formData.maxBedrooms?.value || "",
       dateFrom: formData.dateFrom?formData.dateFrom.toISOString().split('T')[0] : "",
       dateTo: formData.dateTo?formData.dateTo.toISOString().split("T")[0] : "",
@@ -121,9 +121,9 @@ function SearchForm ({onSearch}){
               id="type"
               options={propertyTypeOptions}
               value={formData.type}
-              onChange={(Option) => setFormData({...formData, type: option})}
+              onChange={(option) => setFormData({...formData, type: option})}
               placeholder="Select property type..."
-              styles={selectStyles}
+              styles={selectStyle}
               className="select-widget"
             />
           </div>
@@ -143,7 +143,7 @@ function SearchForm ({onSearch}){
               value={priceOptions.find(opt => opt.value === formData.minPrice)}
               onChange={(option) => setFormData({...formData, minPrice: option.value})}
               placeholder="No minimum"
-              styles={selectStyles}
+              styles={selectStyle}
               className="select-widget"
               />
             </div>
@@ -153,9 +153,9 @@ function SearchForm ({onSearch}){
                 id="maxPrice"
                 options={maxPriceOptions}
                 value={maxPriceOptions.find(opt => opt.value === formData.maxPrice)}
-                onChange={(option) => setFormData({formData, maxPrice: option.value})}
+                onChange={(option) => setFormData({...formData, maxPrice: option.value})}
                 placeholder= "No maximum"
-                styles={selectStyles}
+                styles={selectStyle}
                 className="select-widget"
                 />
             </div>
@@ -174,7 +174,7 @@ function SearchForm ({onSearch}){
                 value={formData.minBedrooms}
                 onChange={(option) => setFormData({...formData, minBedrooms: option})}
                 placeholder="Any"
-                styles={selectStyles}
+                styles={selectStyle}
                 className="select-widget"
               />
             </div>
@@ -186,7 +186,7 @@ function SearchForm ({onSearch}){
                 value={formData.maxBedrooms}
                 onChange={(option) => setFormData({...formData, maxBedrooms: option})}
                 placeholder="Any"
-                styles={selectStyles}
+                styles={selectStyle}
                 className="select-widget"
               />
             </div>

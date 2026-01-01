@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
-import "./styles/propertyCard.css"
+import "../styles/propertyCard.css"
 
 function PropertyCard({property, onView, onAddToFavourites, isFavourite}){
   const [{isDragging}, drag] = useDrag(() => ({
@@ -17,11 +17,16 @@ function PropertyCard({property, onView, onAddToFavourites, isFavourite}){
     }
   };
 
+  const image = property.picture || '/placeholder.jpg';
+  const addedDate = property.added
+    ? new Date(`${property.added.month} ${property.added.day}, ${property.added.year}`)
+    : null;
+
   return(
     <div ref={drag} className={`property-card ${isDragging? 'dragging' : ''}`} style={{opacity: isDragging ? 0.5 : 1}}>
       {/*Property Image*/}
       <div className='property-image-container'>
-        <img src={property.images[0]} alt={property.location} className="property-image"/>
+        <img src={image} alt={property.location} className="property-image"/>
         <button onClick={handleFavouriteClick} 
           className={`favourite-badge ${isFavourite ? "active" : ''}`}
           title={isFavourite ? 'Already in favourites' : "Add to favourites"}
@@ -46,11 +51,11 @@ function PropertyCard({property, onView, onAddToFavourites, isFavourite}){
           {property.bedrooms} Bedroom{property.bedrooms !== 1 ? 's' : ''}
         </p>
 
-        <p className="property-description">{property.shortDescription}</p>
+        <p className="property-description">{property.description}</p>
 
         <div className="property-meta">
           <span className="property-date">
-            Added: {new Date(property.dateAdded).toLocaleDateString('en-GB')}
+            Added: {addedDate ? addedDate.toLocaleDateString('en-GB') : 'N/A'}
           </span>
           <span className="property-postcode">{property.postcode}</span>
         </div>
@@ -61,4 +66,4 @@ function PropertyCard({property, onView, onAddToFavourites, isFavourite}){
   );
 }
 
-export default PropertyCard;
+export default PropertyCard

@@ -1,64 +1,141 @@
-import React from "react"
-import {useDrag} from "react-dnd"
-import "./styles/propertyDetails.css"
+import React, { useState } from 'react'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
+import ImageGallery from './ImageGallery'
 
-function PropertyCard({property, onView, onAddToFavourites, isFavourite}) {
-    const [{isDragging}, drag] = useDrag(() => ({
-        type: "property",
-        item: {property},
-        collect: (monitor) => ({
-            isDragginh: monitor.isDragging()
-        })
-    }));
+function PropertyDetails({ property, onAddToFavourites, isFavourite }) {
+  const images = property.picture ? [property.picture] : [];
+  const [mainImage, setMainImage] = useState(images[0] || '/placeholder.jpg');
 
-    const handleFavouriteClick = () => {
-        if (!isFavourite){
-            onAddToFavourites(property);
-        }
-    };
+  const handleFavouriteClick = () => {
+    if (!isFavourite) onAddToFavourites(property);
+  };
 
-    return(
-        <div ref = {drag} className={`property-card ${isDragging? "dragging": ""}`} style={{opacity: isDragging? 0.5: 1}}>
+  // Build date from JSON
+  const addedDate = property.added
+    ? new Date(`${property.added.month} ${property.added.day}, ${property.added.year}`)
+    : null;
 
-            {/*Property Image */}
-            <div className="property-image-container">
-                <img src={property.images[0]} alt={property.location} className="property-image" />
-                <button 
-                    onClick={handleFavouriteClick} 
-                    className={`favourite-badge ${isFavourite? "active" : ""}`}
-                    title={isFavourite? "Already in favourites" : "Add to favourites"}
-                    disabled={isFavourite}
-                >{isFavourite ? "★" : "☆"}</button>
-            </div>
-
-            {/*Property Information */}
-            <div className="property-info">
-                <div className="property-header">
-                    <h3 className="property-price">£{property.price.toLocalString()}</h3>
-                    <span className="property-type">{property.type}</span>
-                </div>
-
-                <p className="property-location">
-                    <span className="icon">📍</span>
-                    {property.location}
-                </p>
-
-                <p className="property-bedrooms">
-                    <span className="icon">🛏️</span>
-                    {property.bedrooms}Bedroom{property.bedrooms !==1 ? "s" : ""}
-                </p>
-
-                <p className="property-description">{property.shortDescription}</p>
-
-                 <div className="property-meta">
-                    <span className="property-date">Added: {new Date(property.dateadded).toLocaleDateString("en-GB")}</span>
-                    <span className="property-postcode">{property.postcode}</span>
-                 </div>
-
-                 <button onClick={() => onView(property)} className="view-button">View Details</button>
-            </div>
+  return (
+    <div className="property-details">
+      {/* Header */}
+      <div className="details-header">
+        <div className="header-left">
+          <h1 className="details-title">{property.location}</h1>
+          <p className="details-type">{property.type}</p>
         </div>
-    );
+        <div className="header-right">
+          <h2 className="details-price">£{property.price.toLocaleString()}</h2>
+          <button
+            onClick={handleFavouriteClick}
+            className={`favourite-button ${isFavourite ? 'active' : ''}`}
+            disabled={isFavourite}
+          >
+            {isFavourite ? '★ Favourited' : '☆ Add to Favourites'}
+          </button>
+        </div>
+      </div>
+
+      {/* Image Gallery */}
+      <ImageGallery images={images} mainImage={mainImage} setMainImage={setMainImage} />
+
+      {/* Quick Info */}
+      <div className="quick-info">
+        <div className="info-item">
+          <span className="info-icon">🛏️</span>
+          <div>
+            <p className="info-label">Bedrooms</p>
+            <p className="info-value">{property.bedrooms}</p>
+          </div>
+        </div>
+        <div className="info-item">
+          <span className="info-icon">📍</span>
+          <div>
+            <p className="info-label">Location</p>
+            <p className="info-value">{property.location}</p>
+          </div>
+        </div>
+        <div className="info-item">
+          <span className="info-icon">📅</span>
+          <div>
+            <p className="info-label">Added</p>
+            <p className="info-value">
+              {addedDate
+                ? addedDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+                : 'N/A'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="short-description">
+        <h3>Description</h3>
+        <p>{property.description}</p>
+      </div>
+
+      {/* Tabs */}
+      <div className="tabbed-content">
+        <Tabs>
+          <TabList>
+            <Tab>Description</Tab>
+            <Tab>Floor Plan</Tab>
+            <Tab>Map</Tab>
+          </TabList>
+
+          {/* Description Tab */}
+          <TabPanel>
+            <div className="tab-content">
+              <h3>Full Property Description</h3>
+              <p>{property.description}</p>
+              <div className="features-grid">
+                <div className="feature-item">
+                  <h4>Property Type</h4>
+                  <p>{property.type}</p>
+                </div>
+                <div className="feature-item">
+                  <h4>Price</h4>
+                  <p>£{property.price.toLocaleString()}</p>
+                </div>
+                <div className="feature-item">
+                  <h4>Bedrooms</h4>
+                  <p>{property.bedrooms}</p>
+                </div>
+                <div className="feature-item">
+                  <h4>Location</h4>
+                  <p>{property.location}</p>
+                </div>
+              </div>
+            </div>
+          </TabPanel>
+
+          {/* Floor Plan Tab */}
+          <TabPanel>
+            <div className="tab-content">
+              <h3>Floor Plan</h3>
+              <img
+                src="/placeholder-floorplan.jpg"
+                alt="Floor plan"
+                className="floorplan-image"
+              />
+            </div>
+          </TabPanel>
+
+          {/* Map Tab */}
+          <TabPanel>
+            <div className="tab-content">
+              <h3>Location Map</h3>
+              <div className="map-placeholder">
+                <div className="map-icon">📍</div>
+                <p className="map-location">{property.location}</p>
+                <p className="map-note">Map integration requires Google Maps API key</p>
+              </div>
+            </div>
+          </TabPanel>
+        </Tabs>
+      </div>
+    </div>
+  );
 }
 
-export default PropertyCard
+export default PropertyDetails

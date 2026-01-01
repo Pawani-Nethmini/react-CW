@@ -1,10 +1,7 @@
 import React from 'react';
 import { useDrop, useDrag } from 'react-dnd';
+import "../styles/favouritesList.css";
 
-/**
- * FavouritesList Component
- * Displays favourited properties with drag-and-drop support
- */
 function FavouritesList({ favourites, onRemove, onClear, onView, onDrop }) {
   // Drop zone for adding properties to favourites
   const [{ isOver }, drop] = useDrop(() => ({
