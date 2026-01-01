@@ -1,3 +1,6 @@
+import React from "react"
+import "./styles/propertyCard.css"
+
 function PropertyCard({ property, onView, onFavourite }) {
   return (
     <div className="property-card">

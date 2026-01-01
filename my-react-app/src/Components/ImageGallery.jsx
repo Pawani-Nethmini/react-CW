@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/imageGallery.css"
 
-
 function ImageGallery({ images=[], mainImage, setMainImage }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
