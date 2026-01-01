@@ -122,7 +122,7 @@ function SearchForm ({onSearch}){
               value={formData.type}
               onChange={(Option) => setFormData({...formData, type: option})}
               placeholder="Select property type..."
-              styles={selectStyle}
+              styles={selectStyles}
               className="select-widget"
             />
           </div>
@@ -142,7 +142,7 @@ function SearchForm ({onSearch}){
               value={priceOptions.find(opt => opt.value === formData.minPrice)}
               onChange={(option) => setFormData({...formData, minPrice: option.value})}
               placeholder="No minimum"
-              styles={selectStyle}
+              styles={selectStyles}
               className="select-widget"
               />
             </div>
@@ -154,7 +154,7 @@ function SearchForm ({onSearch}){
                 value={maxPriceOptions.find(opt => opt.value === formData.maxPrice)}
                 onChange={(option) => setFormData({formData, maxPrice: option.value})}
                 placeholder= "No maximum"
-                styles={selectStyle}
+                styles={selectStyles}
                 className="select-widget"
                 />
             </div>
@@ -162,7 +162,94 @@ function SearchForm ({onSearch}){
         </div>
 
         {/*Bedrooms Section*/}
+        <div className="form-section">
+          <h3 className="section-title">Bedrooms</h3>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="minBedrooms" className="form-label">Minimum Bedrooms</label>
+              <Select 
+                id="minBedrooms"
+                options={bedroomOptions}
+                value={formData.minBedrooms}
+                onChange={(option) => setFormData({...formData, minBedrooms: option})}
+                placeholder="Any"
+                styles={selectStyles}
+                className="select-widget"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="maxBedrooms" className="form-label">Maximum Bedrooms</label>
+              <Select
+                id="maxBedrooms"
+                options={bedroomOptions}
+                value={formData.maxBedrooms}
+                onChange={(option) => setFormData({...formData, maxBedrooms: option})}
+                placeholder="Any"
+                styles={selectStyles}
+                className="select-widget"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/*Date Added Section*/}
+        <div className="form-section">
+          <h3 className="section-title">Date Added</h3>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="dateFrom" className="form-label">From Date</label>
+              <DatePicker 
+                id="dateFrom"
+                selected={formData.dateFrom}
+                onChange={(date) => setFormData({...formData, dateFrom: date})}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select start date"
+                className="date-picker"
+                maxDate={new Date()}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="dateTo" className="form-label">To Date</label>
+              <DatePicker
+                id="dateTo"
+                selected={formData.dateTo}
+                onChange={(date) => setFormData({...formData, dateTo: date})}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select end date"
+                className="date-picker"
+                minDate={formData.dateFrom}
+                maxDate={new Date()}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/*Postcode Section*/}
+        <div className="form-section">
+          <h3 className="section-title">Location</h3>
+          <div className="form-group">
+            <label htmlFor="postcode" className="form-label">Postcode Area</label>
+            <input 
+              type="text"
+              id="postcode"
+              value={formData.postcode}
+              onChange={(e) => setFormData({...formData, postcode: e.target.value})}
+              placeholder="e.g. BR1, NW!, SW19"
+              className="text-input"
+              maxLength="10"
+            />
+            <small className="input-hint">Enter the first part of the postcode</small>
+          </div>
+        </div>
+
+        {/*Form Actions */}
+        <div className="form-actions">
+          <button type="submit" className="primary-button">Search Properties</button>
+          <button type="button" onClick={handleRest} className="secondary-button">Reset Filters</button>
+        </div>
       </form>
     </div>
-  )
+  );
 }
+
+export default SearchForm
