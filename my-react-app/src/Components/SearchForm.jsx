@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Select from "react-select"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import "./styles/searchForm.css"
 
 function SearchForm ({onSearch}){
   const [formData, setFormData] = useState({
