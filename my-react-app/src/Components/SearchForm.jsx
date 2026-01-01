@@ -1,256 +1,43 @@
-import React, {useState} from "react"
-import Select from "react-select"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
-import "../styles/searchForm.css"
+import React, { useState } from "react";
+import "../styles/searchForm.css";
 
-function SearchForm ({onSearch}){
-  const [formData, setFormData] = useState({
-    type: null,
-    minPrice: "",
-    maxPrice: "",
-    minBedrooms: "",
-    maxBedrooms: "",
-    dateFrom: null,
-    dateTo: null,
-    postcode: ""
-  });
+function SearchForm({ onSearch }) {
+  const [form, setForm] = useState({});
 
-  //Select options for property type
-  const propertyTypeOptions = [
-    {value: "house", label: "House"},
-    {value: "flat", label: "Flat"},
-    {value: "any", label: "Any"}
-  ];
-
-  //Select options for bedrooms
-  const bedroomOptions = [
-    {value: 1, label: "1"},
-    {value: 2, label: "2"},
-    {value: 3, label: "3"},
-    {value: 4, label: "4"},
-    {value: 4, label: "4"},
-    {value: 5, label: "5"}
-  ];
-
-  //Select options for price ranges
-  const priceOptions = [
-     {value: 100000, label: "£100,000"},
-     {value: 200000, label: "£200,000"},
-     {value: 300000, label: "£300,000"},
-     {value: 400000, label: "£400,000"},
-     {value: 500000, label: "£500,000"},
-     {value: 600000, label: "£600,000"},
-     {value: 700000, label: "£700,000"},
-     {value: 800000, label: "£800,000"}
-  ];
-
-  const maxPriceOptions = [
-    {value: 200000, label: "£200,000"},
-    {value: 300000, label: "£300,000"},
-    {value: 400000, label: "£400,000"},
-    {value: 500000, label: "£500,000"},
-    {value: 600000, label: "£600,000"},
-    {value: 700000, label: "£700,000"},
-    {value: 800000, label: "£800,000"},
-    {value: 900000, label: "£900,000"},
-    {value: 1000000, label: "£1,000,000"},
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const searchCriteria = {
-      type: formData.type?.value || "",
-      minPrice: formData.minPrice,
-      maxPrice: formData.maxPrice,
-      minBedrooms: formData.minBedrooms?.value || "",
-      maxBedrooms: formData.maxBedrooms?.value || "",
-      dateFrom: formData.dateFrom?formData.dateFrom.toISOString().split('T')[0] : "",
-      dateTo: formData.dateTo?formData.dateTo.toISOString().split("T")[0] : "",
-      postcode: formData.postcode
-    };
-
-    onSearch(searchCriteria);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
-  const handleRest = () => {
-    setFormData({
-      type: null,
-      minPrice: "",
-      maxPrice: "",
-      minBedrooms: null,
-      maxBedrooms: null,
-      dateFrom: null,
-      dateTo: null,
-      postcode: ""
+  const submit = (e) => {
+    e.preventDefault();
+    onSearch({
+      ...form,
+      minPrice: Number(form.minPrice),
+      maxPrice: Number(form.maxPrice),
+      minBeds: Number(form.minBeds),
+      maxBeds: Number(form.maxBeds),
     });
   };
 
-  //Custom styles for React select components
-  const selectStyle = {
-    control: (base) => ({
-      ...base,
-      borderColor: "#d1d5db",
-      "&:hover": {
-        borderColor: "#2563eb"
-      }
-    }),
-    Option: (base, state) => ({
-      ...base,
-      backgroundColor: state.isSelected? "#2563eb" : state.isFocused? "#dbeafe" : "white",
-      color: state.isSelected? "white": "#1f2937",
-      "&:active" : {
-        backgroundColor: "#2563eb"
-      }
-    })
-  };
-
   return (
-    <div className="search-form-container">
-      <h2 className="form-title">Search Properties</h2>
-      <p className="form-subtitle">Find your perfect home using our advanced search</p>
-      <form onSubmit={handleSubmit} className="search-form">
-        <div className="form-section">
-          <h3 className="section-title">Property Type</h3>
-          <div className="form-group">
-            <label htmlFor="type" className="form-label">
-              Type of Property
-            </label>
-            <Select
-              id="type"
-              options={propertyTypeOptions}
-              value={formData.type}
-              onChange={(option) => setFormData({...formData, type: option})}
-              placeholder="Select property type..."
-              styles={selectStyle}
-              className="select-widget"
-            />
-          </div>
-        </div>
+    <form onSubmit={submit}>
+      <select name="type" onChange={handleChange}>
+        <option value="any">Any</option>
+        <option value="house">House</option>
+        <option value="flat">Flat</option>
+      </select>
 
-        {/*Price Ranhe Section*/}
-        <div className="form-section">
-          <h3 className="section-title">Price Range</h3>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="minPrice" className="form-label">
-                Minimum Price
-              </label>
-              <Select 
-              id="minPrice"
-              options={priceOptions}
-              value={priceOptions.find(opt => opt.value === formData.minPrice)}
-              onChange={(option) => setFormData({...formData, minPrice: option.value})}
-              placeholder="No minimum"
-              styles={selectStyle}
-              className="select-widget"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="maxPrice" className="form-label">Maximum Price</label>
-              <Select 
-                id="maxPrice"
-                options={maxPriceOptions}
-                value={maxPriceOptions.find(opt => opt.value === formData.maxPrice)}
-                onChange={(option) => setFormData({...formData, maxPrice: option.value})}
-                placeholder= "No maximum"
-                styles={selectStyle}
-                className="select-widget"
-                />
-            </div>
-          </div>
-        </div>
+      <input name="minPrice" placeholder="Min Price" onChange={handleChange} />
+      <input name="maxPrice" placeholder="Max Price" onChange={handleChange} />
+      <input name="minBeds" placeholder="Min Beds" onChange={handleChange} />
+      <input name="maxBeds" placeholder="Max Beds" onChange={handleChange} />
+      <input name="postcode" placeholder="Postcode Area" onChange={handleChange} />
+      <input type="date" name="dateAdded" onChange={handleChange} />
 
-        {/*Bedrooms Section*/}
-        <div className="form-section">
-          <h3 className="section-title">Bedrooms</h3>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="minBedrooms" className="form-label">Minimum Bedrooms</label>
-              <Select 
-                id="minBedrooms"
-                options={bedroomOptions}
-                value={formData.minBedrooms}
-                onChange={(option) => setFormData({...formData, minBedrooms: option})}
-                placeholder="Any"
-                styles={selectStyle}
-                className="select-widget"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="maxBedrooms" className="form-label">Maximum Bedrooms</label>
-              <Select
-                id="maxBedrooms"
-                options={bedroomOptions}
-                value={formData.maxBedrooms}
-                onChange={(option) => setFormData({...formData, maxBedrooms: option})}
-                placeholder="Any"
-                styles={selectStyle}
-                className="select-widget"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/*Date Added Section*/}
-        <div className="form-section">
-          <h3 className="section-title">Date Added</h3>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="dateFrom" className="form-label">From Date</label>
-              <DatePicker 
-                id="dateFrom"
-                selected={formData.dateFrom}
-                onChange={(date) => setFormData({...formData, dateFrom: date})}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select start date"
-                className="date-picker"
-                maxDate={new Date()}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="dateTo" className="form-label">To Date</label>
-              <DatePicker
-                id="dateTo"
-                selected={formData.dateTo}
-                onChange={(date) => setFormData({...formData, dateTo: date})}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select end date"
-                className="date-picker"
-                minDate={formData.dateFrom}
-                maxDate={new Date()}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/*Postcode Section*/}
-        <div className="form-section">
-          <h3 className="section-title">Location</h3>
-          <div className="form-group">
-            <label htmlFor="postcode" className="form-label">Postcode Area</label>
-            <input 
-              type="text"
-              id="postcode"
-              value={formData.postcode}
-              onChange={(e) => setFormData({...formData, postcode: e.target.value})}
-              placeholder="e.g. BR1, NW!, SW19"
-              className="text-input"
-              maxLength="10"
-            />
-            <small className="input-hint">Enter the first part of the postcode</small>
-          </div>
-        </div>
-
-        {/*Form Actions */}
-        <div className="form-actions">
-          <button type="submit" className="primary-button">Search Properties</button>
-          <button type="button" onClick={handleRest} className="secondary-button">Reset Filters</button>
-        </div>
-      </form>
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 }
 
-export default SearchForm
+export default SearchForm;

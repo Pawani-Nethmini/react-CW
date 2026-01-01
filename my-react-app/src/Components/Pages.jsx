@@ -1,58 +1,85 @@
 // src/Components/Pages/Pages.jsx
 // src/Components/Pages.jsx
-import React, { useState } from "react"
+import React, {useState} from "react"
+import SearchForm from "./SearchForm"
 import PropertyCard from "./PropertyCard"
 import FavouritesList from "./FavouritesList"
 import PropertyDetails from "./PropertyDetails"
-import propertiesData from '../data/properties.json'
-
+import propertiesData from "../data/properties.json"
 
 function Pages() {
-  const [favourites, setFavourites] = useState([]);
-  const [selectedProperty, setSelectedProperty] = useState(null);
+    const[filters, setFilters] = useState({});
+    const [favourites, setFavourites] = useState([]);
+    const [selectedProperty, setSelectedProperty] = useState(null);
 
-  const handleAddToFavourites = (property) => {
-    if (!favourites.find((p) => p.id === property.id)) {
+    const filteredProperties = propertiesData.filter((property) => {
+        if (filters.type && filters.type !== "any" && property.type !== filters.type)
+            return false;
+
+        if (filters.minPrice && property.price < filters.minPrice) 
+            return false;
+        
+        if (filters.maxPrice && property.price > filters.maxPrice) 
+            return false;
+
+        if (filters.minBeds && property.bedrooms < filters.minBeds) 
+            return false;
+        
+        if (filters.maxBeds && property.bedrooms > filters.maxBeds) 
+            return false;
+
+        if (filters.postcode && !property.postcode.startsWith(filters.postcode))
+            return false;
+
+        if (filters.dateAdded && new Date(property.dateAdded) < new Date(filters.dateAdded))
+            return false;
+
+        return false;
+    });
+
+    const addToFavourites = (property) => {
+    if (!favourites.some((p) => p.id === property.id)) {
       setFavourites([...favourites, property]);
     }
   };
 
-  const handleRemoveFavourite = (id) => {
+  const removeFavourite = (id) => {
     setFavourites(favourites.filter((p) => p.id !== id));
   };
 
-  return (
-    <div className="pages-container">
-      <h1>Property Listings</h1>
-      <div className="properties-grid">
-        {propertiesData.properties.map((property) => (
-          <PropertyCard
-            key={property.id}
-            property={{ ...property, images: [property.picture] }}
-            onView={setSelectedProperty}
-            onAddToFavourites={handleAddToFavourites}
-            isFavourite={favourites.some((p) => p.id === property.id)}
-          />
-        ))}
-      </div>
-
-      {selectedProperty && (
+  if(selectedProperty){
+    return (
         <PropertyDetails
-          property={{ ...selectedProperty, images: [selectedProperty.picture] }}
-          onAddToFavourites={handleAddToFavourites}
-          isFavourite={favourites.some((p) => p.id === selectedProperty.id)}
+            property={selectedProperty}
+            onBack={() => setSelectedProperty(null)}
+            onFavourite={addToFavourites}
         />
-      )}
+    );
+  }
 
-      <FavouritesList
-        favourites={favourites}
-        onRemove={handleRemoveFavourite}
-        onClear={() => setFavourites([])}
-        onView={setSelectedProperty}
-        onDrop={handleAddToFavourites}
-      />
-    </div>
-  );
+  return (
+    <div className="pages-layout">
+        <SearchForm onSearch={setFilters} />
+            
+        <div className="results">
+            {filteredProperties.map((property) => (
+            <PropertyCard
+                key={property.id}
+                property={property}
+                onView={() => setSelectedProperty(property)}
+                onFavourite={addToFavourites}
+            />
+            ))}
+        </div>
+
+        <FavouritesList
+            favourites={favourites}
+            onRemove={removeFavourite}
+            onClear={() => setFavourites([])}
+            onView={setSelectedProperty}
+        />
+        </div>
+    );
 }
 
 export default Pages;

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDrag } from 'react-dnd'
 import "../styles/propertyCard.css"
 
-function PropertyCard({property, onView, onAddToFavourites, isFavourite}){
+function PropertyCard({property, onView, onAddToFavourites}){
   const [{isDragging}, drag] = useDrag(() => ({
     type: 'property',
     item: { property },
