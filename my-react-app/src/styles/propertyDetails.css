@@ -32,3 +32,34 @@
   margin-bottom: 15px;
   color: #1e293b;
 }
+
+/*Floor plan*/
+.floor-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Each floor plan item */
+.floor-plan-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f8fafc;
+}
+
+/* Floor plan images */
+.floor-plan-item img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+}
+.single-floor-plan {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}

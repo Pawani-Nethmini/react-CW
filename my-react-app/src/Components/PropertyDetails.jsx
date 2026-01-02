@@ -6,6 +6,19 @@ import ImageGallery from "./ImageGallery";
 
 function PropertyDetails({ property, onBack, onFavourite }) {
     const mapUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(property.location)}`;
+
+    // Add floor plans list
+    const floorPlanMap = {
+        prop1: "/images/floorplan1.jpg",
+        prop2: "/images/floorplan2.jpg",
+        prop3: "/images/floorplan3.jpg",
+        prop4: "/images/floorplan4.jpg",
+        prop5: "/images/floorplan5.jpg",
+        prop6: "/images/floorplan6.jpg",
+        prop7: "/images/floorplan7.jpg",
+    };
+    const floorPlan = floorPlanMap[property.id];
+
     return (
         <div className="property-details">
             <button className="back-btn" onClick={onBack}>← Back to Search</button>
@@ -42,8 +55,15 @@ function PropertyDetails({ property, onBack, onFavourite }) {
             <TabPanel>
                 <div className="tab-content">
                     <h3>Floor Plan</h3>
-                    {/* Display floor plan image [cite: 45] */}
-                    <img src="/images/floorplan_placeholder.jpg" alt="Floor Plan" style={{ maxWidth: '100%' }} />
+                    {floorPlan ? (
+                        <img
+                            src={floorPlan}
+                            alt={`Floor plan for ${property.type}`}
+                            className="single-floor-plan"
+                        />
+                    ) : (
+                        <p>No floor plan available</p>
+                    )}
                 </div>
             </TabPanel>
 

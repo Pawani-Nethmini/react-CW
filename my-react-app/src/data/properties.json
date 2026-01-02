@@ -8,7 +8,15 @@
 			"tenure":"Freehold",
 			"description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
 			"location":"Petts Wood Road, Petts Wood, Orpington BR5",
-			"picture":"images/prop1pic1small.jpg",
+			"picture":[
+                "images/prop1pic1small.jpg",
+                "images/prop1pic2small.jpg",
+                "images/prop1pic3small.jpg",
+                "images/prop1pic4small.jpg",
+                "images/prop1pic5small.jpg",
+                "images/prop1pic6small.jpg",
+
+              ]
 			"url":"properties/prop1.html",
             "added": {
                 "month":"October",
@@ -36,7 +44,7 @@
             "id":"prop3",
 			"type":"House",
             "bedrooms":3,
-			"price":525000,
+			"price":825000,
 			"tenure":"Freehold",
 			"description":"A beautifully presented three bedroom semi-detached family home located in a quiet residential road. The property features a spacious living room with large windows, a modern fitted kitchen with integrated appliances, and a seperate dining area. Upstairs offers three well-proportioned bedrooms and a contemporary family bathroom. The rear garden is well maintined and ideal for entertaining. Additional benefits include off street parking and gas central heating.",
 			"location":"High Street Beckenham BR3",
@@ -100,7 +108,7 @@
             "id":"prop7",
 			"type":"House",
             "bedrooms":5,
-			"price":399995,
+			"price":765000,
 			"tenure":"Freehold",
 			"description":"A substantial five bedroom period property offering a wealth of character features including high ceilings, original fireplaces, and large bay windows. The property provides versatile accommodation over three floors with multiple reception rooms, a spacious kitchen, and well-sized bedrooms. Externally, there is a large rear garden and on-street parking available.",
 			"location":"Park Lane Greenwich SE 10",

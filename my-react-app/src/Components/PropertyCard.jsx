@@ -20,7 +20,7 @@ function PropertyCard({ property, onView, onFavourite }) {
   <button
     className="fav-icon-btn"
     onClick={() => onFavourite(property)}
-  ></button>
+  >❤</button>
         </div>
       </div>
     </div>
