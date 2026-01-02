@@ -2,7 +2,8 @@ import React from "react"
 import "../styles/propertyCard.css"
 
 function PropertyCard({ property, onView, onFavourite }) {
-  const displayImage = property.images ? property.images[0] : property.picture;
+  const displayImage = property.picture && property.picture.length> 0 ? property.picture[0] : "/images/default.jpg";
+  <img src={displayImage} alt="{property.type"/>
 
   return (
     <div className="property-card">

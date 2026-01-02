@@ -1,8 +1,9 @@
 .image-gallery {
   margin-bottom: 20px;
+  min-height: 450px;
 }
 
-.image-gallery .main-image {
+.main-image {
   width: 100%;
   height: 380px;
   object-fit: cover;
@@ -30,7 +31,7 @@
 
 /* Mobile adjustment */
 @media (max-width: 768px) {
-  .image-gallery .main-image {
+  .main-image {
     height: 220px;
   }
 }

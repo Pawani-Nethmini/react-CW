@@ -29,7 +29,7 @@ function PropertyDetails({ property, onBack, onFavourite }) {
         </div>
 
         {/* Gallery with 6-8 images [cite: 43, 44, 119] */}
-        <ImageGallery images={property.images || [property.picture]} />
+        <ImageGallery images={property.picture} />
 
         <button className="favourite-btn" onClick={() => onFavourite(property)}>
             Add to Favourites ❤
