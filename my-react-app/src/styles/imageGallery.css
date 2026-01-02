@@ -5,9 +5,9 @@
 
 .main-image {
   width: 100%;
-  height: 380px;
+  height: 80vh;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 .thumbnails {
@@ -32,6 +32,6 @@
 /* Mobile adjustment */
 @media (max-width: 768px) {
   .main-image {
-    height: 220px;
+    height: 500px;
   }
 }
