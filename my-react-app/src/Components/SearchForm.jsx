@@ -75,7 +75,7 @@ function SearchForm({ onSearch }) {
         onChange={handleChange} 
       />
 
-      <button variant="contained" type="submit" size="large">Search</button>
+      <Button variant="contained" type="submit" size="large">Search</Button>
     </Box>
   );
 }

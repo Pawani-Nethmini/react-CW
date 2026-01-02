@@ -13,8 +13,14 @@ function PropertyCard({ property, onView, onFavourite }) {
         <p>{property.shortDescription}</p>
 
         <div className="card-actions">
-          <button onClick={onView}>View Details</button>
-          <button className="fav-icon-btn" onClick={() => onFavourite(property)}>❤</button>
+          <button onClick={() => onView(property)}>
+    View Details
+  </button>
+
+  <button
+    className="fav-icon-btn"
+    onClick={() => onFavourite(property)}
+  ></button>
         </div>
       </div>
     </div>

@@ -24,7 +24,18 @@ function Pages() {
 
         // Date search [cite: 28]
         if (filters.dateAdded) {
-            const propertyDate = new Date(property.added.year, property.added.month === 'October' ? 9 : 0, property.added.day);
+            const months = {
+                January: 0, February: 1, March: 2, April: 3,
+                May: 4, June: 5, July: 6, August: 7,
+                September: 8, October: 9, November: 10, December: 11
+            };
+
+            const propertyDate = new Date(
+                property.added.year,
+                months[property.added.month],
+                property.added.day
+            );
+            
             if (propertyDate < new Date(filters.dateAdded)) return false;
         }
 
