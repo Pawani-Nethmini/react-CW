@@ -10,7 +10,7 @@ function App() {
       <header className="header">
         <div className="header-content">
           <h1 className="site-title">Estate Agent Portal</h1>
-          <p className="site-tagline">Find your perfect home with ease</p>
+          <p className="site-tagline">Your smart way to find the right home.</p>
         </div>
       </header>
 

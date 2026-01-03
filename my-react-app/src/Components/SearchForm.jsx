@@ -14,10 +14,10 @@ import "../styles/searchForm.css";
 function SearchForm({ onSearch }) {
   const [form, setForm] = useState({
     type: "any",
-    minPrice: "",
-    maxPrice: "",
+    minPrice: "Math.max(270000, Math.min(minPrice, 800000))",
+    maxPrice: "maxPrice: Math.max(400000, Math.min(maxPrice, 830000))",
     minBeds: "Math.max(1, Math.min(minBeds, 4))",
-    maxBeds: "maxBeds: Math.max(1, Math.min(maxBeds, 5))",
+    maxBeds: "maxBeds: Math.max(2, Math.min(maxBeds, 5))",
     postcode: "",
     startDate: "",
     endDate: ""
@@ -32,8 +32,8 @@ function SearchForm({ onSearch }) {
     e.preventDefault();
     onSearch({
       type: form.type,
-      minPrice: form.minPrice ? Number(form.minPrice) : 275000,
-      maxPrice: form.maxPrice ? Number(form.maxPrice) : 825000,
+      minPrice: form.minPrice ? Number(form.minPrice) : 270000,
+      maxPrice: form.maxPrice ? Number(form.maxPrice) : 830000,
       minBeds: form.minBeds ? Number(form.minBeds) : 1,
       maxBeds: form.maxBeds ? Number(form.maxBeds) : 5,
       postcode: form.postcode.trim().toUpperCase(),
@@ -102,6 +102,7 @@ function SearchForm({ onSearch }) {
           label="Min Price" 
           name="minPrice" 
           type="number" 
+          inputProps={{ min: 270000, max: 800000 }}
           onChange={handleChange}
           sx={{
             '& .MuiOutlinedInput-root': {
@@ -116,6 +117,7 @@ function SearchForm({ onSearch }) {
           label="Max Price" 
           name="maxPrice" 
           type="number" 
+          inputProps={{ min: 400000, max: 830000 }}
           onChange={handleChange}
           sx={{
             '& .MuiOutlinedInput-root': {
