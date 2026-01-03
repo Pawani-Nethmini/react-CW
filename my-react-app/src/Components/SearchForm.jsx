@@ -16,10 +16,11 @@ function SearchForm({ onSearch }) {
     type: "any",
     minPrice: "",
     maxPrice: "",
-    minBeds: "",
-    maxBeds: "",
+    minBeds: "Math.max(1, Math.min(minBeds, 4))",
+    maxBeds: "maxBeds: Math.max(1, Math.min(maxBeds, 5))",
     postcode: "",
-    dateAdded: ""
+    startDate: "",
+    endDate: ""
   });
 
   const handleChange = (e) => {
@@ -30,11 +31,14 @@ function SearchForm({ onSearch }) {
   const submit = (e) => {
     e.preventDefault();
     onSearch({
-      ...form,
-      minPrice: form.minPrice ? Number(form.minPrice) : 0,
-      maxPrice: form.maxPrice ? Number(form.maxPrice) : Infinity,
-      minBeds: form.minBeds ? Number(form.minBeds) : 0,
-      maxBeds: form.maxBeds ? Number(form.maxBeds) : 100,
+      type: form.type,
+      minPrice: form.minPrice ? Number(form.minPrice) : 275000,
+      maxPrice: form.maxPrice ? Number(form.maxPrice) : 825000,
+      minBeds: form.minBeds ? Number(form.minBeds) : 1,
+      maxBeds: form.maxBeds ? Number(form.maxBeds) : 5,
+      postcode: form.postcode.trim().toUpperCase(),
+      startDate: form.startDate || null,
+      endDate: form.endDate || null
     });
   };
 
@@ -59,21 +63,18 @@ function SearchForm({ onSearch }) {
       </Box>
 
       <Box sx={{ display: 'flex', gap: 2 }}>
-        <TextField fullWidth label="Min Beds" name="minBeds" type="number" onChange={handleChange} />
-        <TextField fullWidth label="Max Beds" name="maxBeds" type="number" onChange={handleChange} />
+        <TextField fullWidth label="Min Beds" name="minBeds" type="number" inputProps={{ min: 1, max: 4 }} onChange={handleChange} />
+        <TextField fullWidth label="Max Beds" name="maxBeds" type="number" inputProps={{ min: 2, max: 5 }} onChange={handleChange} />
       </Box>
 
       {/* Postcode and Date Widgets [cite: 28, 35] */}
       <TextField fullWidth label="Postcode Area (e.g. BR1)" name="postcode" onChange={handleChange} />
+
+      <Box sx={{display: 'flex', gap: 2}}>
+        <TextField fullWidth label="Date Added From" name="startDate" type="date" InputLabelProps={{shrink: true}} onChange={handleChange}/>
       
-      <TextField 
-        fullWidth 
-        label="Date Added After" 
-        name="dateAdded" 
-        type="date" 
-        InputLabelProps={{ shrink: true }} 
-        onChange={handleChange} 
-      />
+        <TextField fullWidth label="Date Added To" name="endDate" type="date" InputLabelProps={{ shrink: true }} onChange={handleChange} />
+      </Box>
 
       <Button variant="contained" type="submit" size="large">Search</Button>
     </Box>
