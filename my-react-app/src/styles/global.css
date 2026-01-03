@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
@@ -22,17 +21,14 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
 button {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
 }
-
 button:active {
   transform: scale(0.98);
 }
-
 img {
   max-width: 100%;
   border-radius: 8px;

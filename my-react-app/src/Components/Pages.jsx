@@ -10,19 +10,18 @@ function Pages() {
     const [favourites, setFavourites] = useState([]);
     const [selectedProperty, setSelectedProperty] = useState(null);
 
-    // Correctly access the .properties array from your JSON file 
+    // Correctly access the .properties array from the JSON file 
     const filteredProperties = propertiesData.properties.filter((property) => {
-        // Search logic for 1 to 5 criteria [cite: 39]
         if (filters.type && filters.type !== "any" && property.type !== filters.type) return false;
         if (filters.minPrice && property.price < filters.minPrice) return false;
         if (filters.maxPrice && property.price > filters.maxPrice) return false;
         if (filters.minBeds && property.bedrooms < filters.minBeds) return false;
         if (filters.maxBeds && property.bedrooms > filters.maxBeds) return false;
 
-        // Postcode search (e.g., BR1, NW1) [cite: 28]
+        // Postcode search 
         if (filters.postcode && !property.location.toUpperCase().includes(filters.postcode.toUpperCase())) return false;
 
-        // Date search [cite: 28]
+        // Date search
         if (filters.dateAdded) {
             const months = {
                 January: 0, February: 1, March: 2, April: 3,
@@ -39,11 +38,10 @@ function Pages() {
             if (propertyDate < new Date(filters.dateAdded)) return false;
         }
 
-        return true; // Corrected: Must return true to show results 
+        return true; 
     });
 
     const addToFavourites = (property) => {
-        // Marks for ensuring property can only be added once [cite: 47]
         if (!favourites.some((p) => p.id === property.id)) {
         setFavourites([...favourites, property]);
         }
@@ -65,10 +63,10 @@ function Pages() {
     }
 
     return (
-        <div className="page-layout"> {/* Match your CSS class name  */}
+        <div className="page-layout"> 
             <div className="search-section">
                 <SearchForm onSearch={setFilters} />
-                {/* Requirement: Display favourites on search page [cite: 50, 79] */}
+                {/*Display favourites on search page */}
                 <FavouritesList
                     favourites={favourites}
                     onRemove={removeFavourite}

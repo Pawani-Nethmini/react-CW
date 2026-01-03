@@ -67,12 +67,11 @@ function SearchForm({ onSearch }) {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text'
-        }}
-      >
+        }}>
         Search Properties
       </Typography>
       
-      {/* Property Type Widget [cite: 25, 35] */}
+      {/*Property Type Widget*/}
       <FormControl fullWidth>
         <InputLabel sx={{ fontWeight: 500 }}>Property Type</InputLabel>
         <Select 
@@ -161,7 +160,7 @@ function SearchForm({ onSearch }) {
         />
       </Box>
 
-      {/* Postcode and Date Widgets [cite: 28, 35] */}
+      {/* Postcode and Date Widgets */}
       <TextField 
         fullWidth 
         label="Postcode Area (e.g. BR1)" 

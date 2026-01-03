@@ -27,8 +27,8 @@ function ImageGallery({ images}) {
                     className={current === img ? "active" : ""}
                     onClick={() => setCurrent(img)}
                 />
-        ))}
-      </div>
+          ))}
+        </div>
     </div>
   );
 }

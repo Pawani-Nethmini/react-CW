@@ -5,13 +5,11 @@
   border: 1px solid #bfdbfe;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
 }
-
 .favourites-sidebar h3 {
   color: #1e40af;
   margin-bottom: 16px;
   font-size: 1.1rem;
 }
-
 .fav-item {
   display: flex;
   justify-content: space-between;
@@ -24,18 +22,15 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   transition: all 0.2s ease;
 }
-
 .fav-item:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.12);
   transform: translateX(4px);
 }
-
 .fav-title {
   cursor: pointer;
   color: #2563eb;
   font-weight: 500;
 }
-
 .remove-btn {
   color: #ef4444;
   background: #fef2f2;
@@ -44,12 +39,10 @@
   padding: 4px 10px;
   border-radius: 6px;
 }
-
 .remove-btn:hover {
   background: #fee2e2;
   color: #dc2626;
 }
-
 .clear-all-btn {
   width: 100%;
   margin-top: 10px;
@@ -60,7 +53,6 @@
   border-radius: 8px;
   font-weight: 600;
 }
-
 .clear-all-btn:hover {
   background: #fecaca;
   color: #991b1b;
