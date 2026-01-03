@@ -59,6 +59,7 @@ function Pages() {
             property={selectedProperty}
             onBack={() => setSelectedProperty(null)}
             onFavourite={addToFavourites}
+            favourites={favourites}
         />
         );
     }

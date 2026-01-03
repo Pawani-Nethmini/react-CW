@@ -4,8 +4,11 @@ import 'react-tabs/style/react-tabs.css'
 import "../styles/propertyDetails.css"
 import ImageGallery from "./ImageGallery";
 
-function PropertyDetails({ property, onBack, onFavourite }) {
+function PropertyDetails({ property, onBack, onFavourite, favourites = [] }) {
     const mapUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(property.location)}`;
+
+    // Check if property is already in favourites
+    const isFavourited = favourites.some((p) => p.id === property.id);
 
     // Add floor plans list
     const floorPlanMap = {
@@ -31,8 +34,12 @@ function PropertyDetails({ property, onBack, onFavourite }) {
         {/* Gallery with 6-8 images [cite: 43, 44, 119] */}
         <ImageGallery images={property.picture} />
 
-        <button className="favourite-btn" onClick={() => onFavourite(property)}>
-            Add to Favourites ❤
+        <button 
+            className={`favourite-btn ${isFavourited ? 'already-favourited' : ''}`} 
+            onClick={() => onFavourite(property)}
+            disabled={isFavourited}
+        >
+            {isFavourited ? '✓ Added to Favourites' : 'Add to Favourites ❤'}
         </button>
 
         {/* Mandatory React Tabs Implementation [cite: 45, 76, 124] */}
