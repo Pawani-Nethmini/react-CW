@@ -1,4 +1,4 @@
-/* Tablet and Below (iPad Landscape: 1024px) */
+/* Tablet and Below*/
 @media (max-width: 1024px) {
   .results-layout {
     grid-template-columns: 1fr;
