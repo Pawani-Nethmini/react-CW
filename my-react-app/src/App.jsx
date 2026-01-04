@@ -19,7 +19,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; 2026 Estate Agent Web Application - Advanced Client-Side Development</p>
+        <p>&copy; 2026 Estate Agent Portal - All Rights Reserved</p>
       </footer>
     </div>
   );

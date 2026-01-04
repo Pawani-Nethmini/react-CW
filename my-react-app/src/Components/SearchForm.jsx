@@ -13,7 +13,7 @@ import "../styles/searchForm.css";
 
 function SearchForm({ onSearch }) {
   const [form, setForm] = useState({
-    type: "any",
+    type: "",
     minPrice: "",
     maxPrice: "",
     minBeds: "",
