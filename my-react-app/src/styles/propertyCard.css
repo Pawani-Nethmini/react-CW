@@ -37,6 +37,32 @@
     justify-content: space-between;
     margin-top: 15px;
 }
+.icon-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.map-icon-btn{
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border: 2px solid  #bbcaec;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.map-icon-btn:hover{
+  background:#c8dfef;
+  border-color: #80a3ee;
+  transform: scale(1.1);
+}
+.map-icon{
+  width:18px;
+  height:auto;
+  color: #000;
+}
 .fav-icon-btn {
   background: #fff;
   border: 2px solid #fee2e2;

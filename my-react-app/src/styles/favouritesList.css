@@ -47,6 +47,45 @@
   background: #fee2e2;
   color: #dc2626;
 }
+.fav-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.fav-thumb {
+  width: 72px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.fav-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.fav-name {
+  cursor: pointer;
+  color: #2563eb;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fav-price {
+  color: #111827;
+  font-size: 0.9rem;
+}
+.fav-card .remove-btn {
+  margin-left: 8px;
+  flex-shrink: 0;
+}
 .clear-all-btn {
   width: 100%;
   margin-top: 10px;

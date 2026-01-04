@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/favouritesList.css";
+import FavouriteCard from './FavouriteCard';
 
 function FavouritesList({ favourites, onRemove, onClear, onView, onDropAdd }) {
   const handleDragOver = (e) => {
@@ -37,12 +38,7 @@ function FavouritesList({ favourites, onRemove, onClear, onView, onDropAdd }) {
 
       <div className="fav-items">
         {favourites.map((p) => (
-          <div key={p.id} className="fav-item">
-            <span className="fav-title" onClick={() => onView(p)}>
-                {p.type} - £{p.price.toLocaleString()}
-            </span>
-            <button className="remove-btn" onClick={() => onRemove(p.id)}>Delete</button>
-          </div>
+          <FavouriteCard key={p.id} property={p} onRemove={onRemove} onView={onView} />
         ))}
       </div>
 

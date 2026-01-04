@@ -14,8 +14,8 @@ import "../styles/searchForm.css";
 function SearchForm({ onSearch }) {
   const [form, setForm] = useState({
     type: "any",
-    minPrice: "2700000",
-    maxPrice: "8300000",
+    minPrice: "",
+    maxPrice: "",
     minBeds: "",
     maxBeds: "",
     postcode: "",
