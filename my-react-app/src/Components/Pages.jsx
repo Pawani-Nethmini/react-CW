@@ -72,6 +72,7 @@ function Pages() {
                     onRemove={removeFavourite}
                     onClear={() => setFavourites([])}
                     onView={setSelectedProperty}
+                    onDropAdd={(property) => addToFavourites(property)}
                 />
             </div>
             

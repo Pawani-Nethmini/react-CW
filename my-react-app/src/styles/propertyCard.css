@@ -11,13 +11,13 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   border-color: #e2e8f0;
 }
-.property-card img {
+.property-card > img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-.property-card:hover img {
+.property-card:hover > img {
   transform: scale(1.05);
 }
 .card-content{
@@ -76,4 +76,17 @@
   outline: 3px solid rgba(6, 182, 212, 0.18);
   outline-offset: 2px;
 }
+
+.Bedroom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.bed-icon {
+  width: 18px;
+  height: auto;
+}
+
 
