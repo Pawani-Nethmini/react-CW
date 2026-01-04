@@ -2,8 +2,8 @@
 A responsive double-page property search application built using React, featuring advanced filtering, drag-and-drop favorites management, and detailed property views.
 
 **Live Demo & Repository**
-Live Site: https://your-deployment-url.vercel.app/
-GitHub: https://github.com/yourusername/estate-agent-portal
+Live Site: https://react-cw-bkfg.vercel.app/
+GitHub: https://github.com/Pawani-Nethmini/react-CW
 
 **Overview**
 The Estate Agent Portal is a modern property search application that allows users to browse properties, apply multiple filters simultaneously, view detailed property information with image galleries and floor plans, and manage a favorites list through an intuitive drag-and-drop interface. All functionality is implemented client-side using React.
