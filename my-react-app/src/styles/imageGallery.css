@@ -30,4 +30,12 @@
   .main-image {
     height: 500px;
   }
+  .thumbnails {
+    overflow-x: scroll !important;
+    white-space: nowrap;
+  }
+  
+  .thumbnails img {
+    display: inline-block !important;
+  }
 }
