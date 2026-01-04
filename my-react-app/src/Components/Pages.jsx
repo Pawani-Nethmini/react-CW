@@ -22,7 +22,7 @@ function Pages() {
         if (filters.postcode && !property.location.toUpperCase().includes(filters.postcode.toUpperCase())) return false;
 
         // Date search
-        if (filters.dateAdded) {
+        if (filters.startDate || filters.endDate) {
             const months = {
                 January: 0, February: 1, March: 2, April: 3,
                 May: 4, June: 5, July: 6, August: 7,
@@ -35,7 +35,8 @@ function Pages() {
                 property.added.day
             );
             
-            if (propertyDate < new Date(filters.dateAdded)) return false;
+            if (filters.startDate && propertyDate < new Date(filters.startDate)) return false;
+            if (filters.endDate && propertyDate > new Date(filters.endDate)) return false;
         }
 
         return true; 
